@@ -40,7 +40,7 @@ export class AppComponent {
   //   const person = this.peopleInTheRoom[index];
   //   this.name = person.name;
   //   this.favoriteFramework = person.framework;
-  //
+
   //   this.remove(index);
   // }
 
