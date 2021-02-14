@@ -6,5 +6,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'tetris-app';
+  player = {};
+
+  gameStart($event) {
+    this.player = {
+      name: $event.name,
+      email: $event.email,
+    };
+  }
+
+  gameExit() {
+  }
 }
