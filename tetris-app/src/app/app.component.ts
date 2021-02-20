@@ -8,18 +8,17 @@ import { IntroComponent } from './intro/intro.component';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  title = 'tetris';
   player = {};
-  gameStarted = GameComponent;
+
 
   gameStart($event) {
     this.player = {
       name: $event.name,
       email: $event.email,
     };
-    this.gameStarted;
   }
 
   gameExit() {
-
   }
 }
