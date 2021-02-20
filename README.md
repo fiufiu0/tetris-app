@@ -1,8 +1,6 @@
 # TETRIS APP
 
 ## Podstawowa działająca aplikacja.
+Dodano zmiany.
+- Brak podzielenia na strony.
 
-- trzeba rozdzielić na dwie strony, 
-- dodać wykrywanie błędów,
-- styl CSS,
-- timer
