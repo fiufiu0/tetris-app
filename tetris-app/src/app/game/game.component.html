@@ -1,26 +1,29 @@
 <div>
     <div class="header">
         <h2>Tetris App - Game Page</h2>
-        <h3>Welcome to the game!</h3>
     </div>
-
-    <tetris-core #game (lineCleared)="lineCleared()" (gameOver)="gameOver()">
-    </tetris-core>
+    <!-- tu był tetris-core -->
 
     <div class="inside">
-        <h4>Hello {{player.name}}. Blocks are waiting! Your email: {{player.email}}</h4>
+        <tetris-core #game (lineCleared)="lineCleared()" (gameOver)="gameOver()">
+        </tetris-core>
+
+
+        <h4>Hello {{player.name}}. </h4>
+        <h4>Your email: {{player.email}}</h4>
+        <h5>Welcome to the game. See instructions below!</h5>
 
         <div class="scoretime">
             <p>Your score: {{points}}</p>
-            <p>Play time: x</p>
+            <p>Play time: {{time}}</p>
             <h3><b>{{status}}</b></h3>
-            <button (click)="game.actionReset()">Reset game</button>
+            <button (click)="gameStart()">Start</button>
+            <button (click)="gameStop()">Stop</button>
+            <button (click)="gameReset()">Reset game</button>
             <button (click)="gameExit()">Exit game</button>
-            <!-- <button (click)="gameExit()">Exit game</button> -->
         </div>
         <div class="info">
             <p><b>Game instruction:</b></p>
-            <p>SPACE - start/stop game</p>
             <p>W - rotate block</p>
             <p>A - left</p>
             <p>D - rght</p>

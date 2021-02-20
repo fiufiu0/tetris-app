@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { GameComponent } from '../game/game.component';
 
 @Component({
   selector: 'app-intro',

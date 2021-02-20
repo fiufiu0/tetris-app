@@ -10,6 +10,10 @@ export class GameComponent implements OnInit {
 
     points = 0;
     status = "Game ready! Press to start!";
+    seconds: number = 0;
+    time: string = this.toMinute(this.seconds);
+    timeId;
+
     @ViewChild('game') tetris: TetrisCoreComponent;
     @Output() exitEvent = new EventEmitter();
     @Input() player = {
@@ -35,25 +39,31 @@ export class GameComponent implements OnInit {
         else if (event.key === 'd') {
             this.tetris.actionRight();
         }
-        else if (event.key === ' ') {
-            this.gameStart();
-        }
     }
 
     gameStart() {
-        if (this.tetris.state === 1) {
-            this.tetris.actionStop();
-            this.status = 'Game paused!';
-        }
-        else {
-            this.tetris.actionStart();
-            this.status = 'Game started!';
-        }
+        this.tetris.actionStart();
+        this.status = 'Game started!';
+        this.startTimer();
+    }
+
+    gameStop() {
+        this.tetris.actionStop();
+        this.status = 'Game paused!';
+        this.stopTimer();
     }
 
     gameExit() {
         this.tetris.actionStop();
         this.exitEvent.emit();
+        this.stopTimer();
+    }
+
+    gameReset() {
+        this.tetris.actionReset();
+        this.stopTimer();
+        this.seconds = 0;
+        this.time = this.toMinute(this.seconds);
     }
 
     countPoints() {
@@ -66,6 +76,26 @@ export class GameComponent implements OnInit {
 
     gameOver() {
         this.status = "Game over! Try again!"
+        this.stopTimer();
+    }
+
+    toMinute(seconds: number): string {
+        let min: number = Math.floor(seconds / 60);
+        let sec: number = seconds % 60;
+        return (
+            min.toString().padStart(2, '0') + ':' + sec.toString().padStart(2, '0')
+        );
+    }
+
+    startTimer() {
+        this.timeId = setInterval(() => {
+            this.seconds += 1;
+            this.time = this.toMinute(this.seconds);
+        }, 1000);
+    }
+
+    stopTimer() {
+        clearTimeout(this.timeId);
     }
 
 }

@@ -5,27 +5,27 @@
     </div>
 
     <div class="form">
-        <form #personForm="ngForm">
+        <form #playerForm="ngForm">
             <div class="form-input">
-                <label>Enter player name:</label>
+                <label for="name">Player name:</label>
                 <input ngModel #name="ngModel" id="name" name="name" type="text" required minlength="2" required />
                 <div *ngIf="name.touched && name.invalid">
                     <div *ngIf="name.errors.required">
                         WARNING! Your name is required.
                     </div>
                     <div *ngIf="name.errors.minlength">
-                        WARNING! Name must have minimum {{name.errors.minlength.requiredLength}} characters.
+                        WARNING! Minimum {{name.errors.minlength.requiredLength}} characters.
                     </div>
-                    <div *ngIf="name.errors.pattern">Your name should start with a letter.</div>
                 </div>
 
             </div>
             <div class="form-input">
-                <label>Enter player email:</label>
-                <input ngModel #email="ngModel" id="email" name="email" type="text" required email="true" />
+                <label for="email">Player email:</label>
+                <input ngModel #email="ngModel" id="email" name="email" type="text" required email="true" required
+                    monkey="@" />
             </div>
 
-            <button (click)="start(personForm.form)">START GAME</button>
+            <button (click)="start(playerForm.form)">START GAME</button>
         </form>
     </div>
 
