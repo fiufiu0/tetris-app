@@ -4,3 +4,29 @@
     text-align: center;
 }
 
+.info {
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+/* .aboutplayer {
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+} */
+
+.scoretime {
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+.inside {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    background-color: #DDDDDD
+}
+

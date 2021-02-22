@@ -1,6 +1,6 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { FormGroup } from '@angular/forms';
-import { GameComponent } from '../game/game.component';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { FormGroup, NgForm } from '@angular/forms';
+
 
 @Component({
   selector: 'app-intro',
@@ -8,7 +8,7 @@ import { GameComponent } from '../game/game.component';
   styleUrls: ['./intro.component.css']
 })
 export class IntroComponent implements OnInit {
-
+  @Input() name: string;
   @Output() startEvent = new EventEmitter();
 
   constructor() { }

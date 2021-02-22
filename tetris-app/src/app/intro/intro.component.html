@@ -1,11 +1,11 @@
-<div>
+<div *ngIf="true" class="main">
     <div class="header">
         <h2>Tetris App - Intro Page</h2>
         <h4>Welcome to game!</h4>
     </div>
 
     <div class="form">
-        <form #playerForm="ngForm">
+        <form #playerForm="ngForm" (ngSubmit)="start(playerForm)">
             <div class="form-input">
                 <label for="name">Player name:</label>
                 <input ngModel #name="ngModel" id="name" name="name" type="text" required minlength="2" required />
@@ -29,7 +29,8 @@
                 </div>
             </div>
 
-            <button (click)="start(playerForm.form)">START GAME</button>
+            <button type="submit" (click)="start(playerForm.form)">START
+                GAME</button>
         </form>
     </div>
 

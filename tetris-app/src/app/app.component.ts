@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { GameComponent } from './game/game.component';
-import { IntroComponent } from './intro/intro.component';
 
 @Component({
   selector: 'app-root',
@@ -11,12 +9,14 @@ export class AppComponent {
   title = 'tetris';
   player = {};
 
+  submit: boolean = false;
 
   gameStart($event) {
     this.player = {
       name: $event.name,
       email: $event.email,
     };
+    this.submit = true;
   }
 
   gameExit() {

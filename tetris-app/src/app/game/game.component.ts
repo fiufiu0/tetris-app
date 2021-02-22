@@ -8,7 +8,7 @@ import { TetrisCoreComponent } from 'ngx-tetris';
 })
 export class GameComponent implements OnInit {
 
-    points = 0;
+    points: number = 0;
     status = "Game ready! Press to start!";
     seconds: number = 0;
     time: string = this.toMinute(this.seconds);
@@ -16,6 +16,7 @@ export class GameComponent implements OnInit {
 
     @ViewChild('game') tetris: TetrisCoreComponent;
     @Output() exitEvent = new EventEmitter();
+    @Output() gameStatus = new EventEmitter();
     @Input() player = {
         name: '',
         email: '',
@@ -53,7 +54,7 @@ export class GameComponent implements OnInit {
         this.stopTimer();
     }
 
-    gameExit() {
+    gameExit(tetris) {
         this.tetris.actionStop();
         this.exitEvent.emit();
         this.stopTimer();
@@ -61,6 +62,7 @@ export class GameComponent implements OnInit {
 
     gameReset() {
         this.tetris.actionReset();
+        this.status = 'Reset!';
         this.stopTimer();
         this.seconds = 0;
         this.time = this.toMinute(this.seconds);
