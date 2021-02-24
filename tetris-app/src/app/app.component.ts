@@ -20,5 +20,6 @@ export class AppComponent {
   }
 
   gameExit() {
+    this.submit = false;
   }
 }

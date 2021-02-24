@@ -15,8 +15,7 @@ export class GameComponent implements OnInit {
     timeId;
 
     @ViewChild('game') tetris: TetrisCoreComponent;
-    @Output() exitEvent = new EventEmitter();
-    @Output() gameStatus = new EventEmitter();
+    @Output() exitGame = new EventEmitter();
     @Input() player = {
         name: '',
         email: '',
@@ -54,9 +53,9 @@ export class GameComponent implements OnInit {
         this.stopTimer();
     }
 
-    gameExit(tetris) {
+    gameExit() {
         this.tetris.actionStop();
-        this.exitEvent.emit();
+        this.exitGame.emit();
         this.stopTimer();
     }
 
@@ -69,7 +68,7 @@ export class GameComponent implements OnInit {
     }
 
     countPoints() {
-        this.points += 1;
+        this.points += 10;
     }
 
     lineCleared() {

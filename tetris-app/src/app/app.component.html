@@ -1,8 +1,8 @@
 <div class="main-app">
   <div *ngIf="!submit">
-    <app-intro (startEvent)="gameStart($event)"></app-intro>
+    <app-intro (startGame)="gameStart($event)"></app-intro>
   </div>
   <div *ngIf="submit">
-    <app-game (exitEvent)="gameExit($event)" [player]="player"></app-game>
+    <app-game (exitGame)="gameExit($event)" [player]="player"></app-game>
   </div>
 </div>

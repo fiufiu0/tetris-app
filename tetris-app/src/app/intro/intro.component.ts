@@ -9,7 +9,7 @@ import { FormGroup, NgForm } from '@angular/forms';
 })
 export class IntroComponent implements OnInit {
   @Input() name: string;
-  @Output() startEvent = new EventEmitter();
+  @Output() startGame = new EventEmitter();
 
   constructor() { }
   ngOnInit(): void {
@@ -20,6 +20,6 @@ export class IntroComponent implements OnInit {
     const email = form.value.email;
 
     if (form.valid)
-      this.startEvent.emit({ name, email });
+      this.startGame.emit({ name, email });
   }
 }
