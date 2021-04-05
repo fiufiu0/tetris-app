@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-game-info',
@@ -6,6 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./game-info.component.css']
 })
 export class GameInfoComponent implements OnInit {
+  @Input() status: string;
+  @Input() points: number;
+  @Input() time: string;
 
   constructor() { }
 

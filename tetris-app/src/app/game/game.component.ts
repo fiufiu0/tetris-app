@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, ViewChild, EventEmitter, HostListener } from '@angular/core';
 import { TetrisCoreComponent } from 'ngx-tetris';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-game',
@@ -8,10 +9,10 @@ import { TetrisCoreComponent } from 'ngx-tetris';
 })
 export class GameComponent implements OnInit {
 
-    points: number = 0;
-    status = "Game ready! Press to start!";
-    seconds: number = 0;
-    time: string = this.toMinute(this.seconds);
+    public points: number = 0;
+    public status = "Game ready!";
+    public seconds: number = 0;
+    public time: string = this.toMinute(this.seconds);
     timeId;
 
     @ViewChild('game') tetris: TetrisCoreComponent;
@@ -20,25 +21,16 @@ export class GameComponent implements OnInit {
         name: '',
         email: '',
     };
-    constructor() { }
+    constructor(private _router: Router) { }
 
     ngOnInit(): void {
     }
 
-    @HostListener('window:keydown', ['$event'])
-    keyEvent(event: KeyboardEvent): void {
-        if (event.key === 'w') {
-            this.tetris.actionRotate();
-        }
-        else if (event.key === 'a') {
-            this.tetris.actionLeft();
-        }
-        else if (event.key === 's') {
-            this.tetris.actionDown();
-        }
-        else if (event.key === 'd') {
-            this.tetris.actionRight();
-        }
+    backIntro() {
+        this.tetris.actionStop();
+        this.exitGame.emit();
+        this.stopTimer();
+        this._router.navigateByUrl('/intro');
     }
 
     gameStart() {
@@ -50,12 +42,6 @@ export class GameComponent implements OnInit {
     gameStop() {
         this.tetris.actionStop();
         this.status = 'Game paused!';
-        this.stopTimer();
-    }
-
-    gameExit() {
-        this.tetris.actionStop();
-        this.exitGame.emit();
         this.stopTimer();
     }
 

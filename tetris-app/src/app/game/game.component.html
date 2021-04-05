@@ -11,27 +11,20 @@
         </div>
 
         <div class="aboutplayer">
-            <h4>Hello {{player.name}}. </h4>
-            <h4>Your email: {{player.email}}</h4>
+            <h4>Hello {{player.name}} </h4>
+            <h4>Your token: {{player.token}}</h4>
             <p>Welcome to the game.</p>
-            <p>See game instructions!</p>
         </div>
 
         <div class="scoretime">
-            <p>Your score: {{points}} points</p>
-            <p>Play time: {{time}}</p>
-            <h3><b>{{status}}</b></h3>
+            <app-game-info [status]="status" [points]="points" [time]="time"></app-game-info>
             <button (click)="gameStart()">Start</button>
             <button (click)="gameStop()">Stop</button>
-            <button (click)="gameReset()">Reset game</button>
-            <button (click)="gameExit(tetris)">Exit game</button>
+            <button (click)="gameReset()">Reset</button>
+            <button (click)="backIntro()">EXIT</button>
         </div>
-        <div class="info">
-            <p><b>Game instruction:</b></p>
-            <p>W - rotate block</p>
-            <p>A - left</p>
-            <p>D - rght</p>
-            <p>S - down</p>
+        <div class="controller">
+            <app-game-control [game]="game"></app-game-control>
         </div>
 
     </div>

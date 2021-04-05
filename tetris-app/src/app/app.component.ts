@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -7,19 +8,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'tetris';
-  player = {};
 
-  submit: boolean = false;
-
-  gameStart($event) {
-    this.player = {
-      name: $event.name,
-      email: $event.email,
-    };
-    this.submit = true;
-  }
-
-  gameExit() {
-    this.submit = false;
-  }
 }

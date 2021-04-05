@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormGroup, NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -8,18 +9,15 @@ import { FormGroup, NgForm } from '@angular/forms';
   styleUrls: ['./intro.component.css']
 })
 export class IntroComponent implements OnInit {
-  @Input() name: string;
-  @Output() startGame = new EventEmitter();
+  public name: string;
+  public token: string;
 
-  constructor() { }
+  constructor(private _router: Router) { }
   ngOnInit(): void {
   }
 
-  start(form: FormGroup) {
-    const name = form.value.name;
-    const email = form.value.email;
-
-    if (form.valid)
-      this.startGame.emit({ name, email });
+  startGame() {
+    this._router.navigateByUrl('/game')
   }
+
 }

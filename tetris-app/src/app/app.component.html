@@ -1,8 +1,1 @@
-<div class="main-app">
-  <div *ngIf="!submit">
-    <app-intro (startGame)="gameStart($event)"></app-intro>
-  </div>
-  <div *ngIf="submit">
-    <app-game (exitGame)="gameExit($event)" [player]="player"></app-game>
-  </div>
-</div>
+<router-outlet></router-outlet>

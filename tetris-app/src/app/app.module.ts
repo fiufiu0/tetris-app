@@ -9,6 +9,7 @@ import { TetrisCoreModule } from 'ngx-tetris';
 import { IntroFormComponent } from './intro/intro-form/intro-form.component';
 import { GameInfoComponent } from './game/game-info/game-info.component';
 import { GameControlComponent } from './game/game-control/game-control.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,12 @@ import { GameControlComponent } from './game/game-control/game-control.component
   imports: [
     BrowserModule,
     TetrisCoreModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forRoot([
+      { path: 'intro', component: IntroComponent },
+      { path: 'game', component: GameComponent },
+      { path: '**', redirectTo: 'intro' }
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent]
