@@ -5,7 +5,18 @@
     </div>
 
     <div class="form">
-        <app-intro-form></app-intro-form>
+        <!-- <app-intro-form></app-intro-form> -->
+        <form>
+            <div class="name">
+                <label for="name">Player name:</label>
+                <input type="text" [(ngModel)]="name" name="name" />
+            </div>
+
+            <div class="token">
+                <label for="token">Player token:</label>
+                <input type="text" [(ngModel)]="token" name="token" />
+            </div>
+        </form>
         <button (click)="startGame()">START GAME</button>
     </div>
 </div>

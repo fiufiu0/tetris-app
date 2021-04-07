@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, ViewChild, EventEmitter, HostListener } from '@angular/core';
 import { TetrisCoreComponent } from 'ngx-tetris';
 import { Router } from '@angular/router';
+import { DataService } from '../data.service';
 
 @Component({
     selector: 'app-game',
@@ -13,17 +14,19 @@ export class GameComponent implements OnInit {
     public status = "Game ready!";
     public seconds: number = 0;
     public time: string = this.toMinute(this.seconds);
+    public data: any;
     timeId;
 
     @ViewChild('game') tetris: TetrisCoreComponent;
     @Output() exitGame = new EventEmitter();
     @Input() player = {
         name: '',
-        email: '',
+        token: '',
     };
-    constructor(private _router: Router) { }
+    constructor(private _router: Router, private _dataService: DataService) { }
 
     ngOnInit(): void {
+        this.data = this._dataService.getData();
     }
 
     backIntro() {

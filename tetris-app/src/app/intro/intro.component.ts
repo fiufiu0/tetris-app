@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { FormGroup, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { DataService } from '../data.service';
 
 
 @Component({
@@ -12,12 +12,13 @@ export class IntroComponent implements OnInit {
   public name: string;
   public token: string;
 
-  constructor(private _router: Router) { }
+  constructor(private _router: Router, private _dataService: DataService) { }
   ngOnInit(): void {
   }
 
   startGame() {
-    this._router.navigateByUrl('/game')
+    this._dataService.setData({ name: this.name, token: this.token });
+    this._router.navigateByUrl('/game');
   }
 
 }
