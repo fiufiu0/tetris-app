@@ -1,0 +1,7 @@
+.ranking-list {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 15px;
+    list-style-type: none;
+}

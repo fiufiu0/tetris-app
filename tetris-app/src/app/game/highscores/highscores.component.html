@@ -1,0 +1,18 @@
+<div class="ranking">
+    <div class="sort-score">
+        <label class="sort">Filter list </label>
+        <select class="sort">
+            <option value="asc">Min score</option>
+            <option value="desc">Max score</option>
+        </select>
+    </div>
+    <p><b>Player list</b></p>
+    <div class="ranking-list">
+
+        <li *ngFor="let player of players">
+            <p>{{player.name}} | {{player.score}}</p>
+            <!-- <p>{{player.score}}</p> -->
+        </li>
+
+    </div>
+</div>
