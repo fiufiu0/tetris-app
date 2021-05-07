@@ -1,5 +1,8 @@
 <div>
     <p>Score: <b>{{points}}</b> points</p>
-    <p>Play time: {{time}}</p>
-    <h3><b>{{status}}</b></h3>
+    <p>Play time: <b>{{time}}</b></p>
+    <h3
+        [ngStyle]="{'color': (status === 'Game started!') ? 'green' : (status === 'Reset!') ? 'red' : (status === 'Game paused!') ? 'orange' : ''}">
+        <b>{{status}}</b>
+    </h3>
 </div>

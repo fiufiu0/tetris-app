@@ -10,6 +10,9 @@ import { IntroFormComponent } from './intro/intro-form/intro-form.component';
 import { GameInfoComponent } from './game/game-info/game-info.component';
 import { GameControlComponent } from './game/game-control/game-control.component';
 import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
+import { HighscoresComponent } from './game/highscores/highscores.component';
+import { SortScorePipe } from './game/sort-score.pipe';
 
 @NgModule({
   declarations: [
@@ -18,11 +21,14 @@ import { RouterModule } from '@angular/router';
     GameComponent,
     IntroFormComponent,
     GameInfoComponent,
-    GameControlComponent
+    GameControlComponent,
+    HighscoresComponent,
+    SortScorePipe
   ],
   imports: [
     BrowserModule,
     TetrisCoreModule,
+    HttpClientModule,
     FormsModule,
     RouterModule.forRoot([
       { path: 'intro', component: IntroComponent },

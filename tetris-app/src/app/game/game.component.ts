@@ -8,6 +8,7 @@ import { DataService } from '../data.service';
     templateUrl: './game.component.html',
     styleUrls: ['./game.component.css']
 })
+
 export class GameComponent implements OnInit {
 
     public points: number = 0;
@@ -23,10 +24,14 @@ export class GameComponent implements OnInit {
         name: '',
         token: '',
     };
+
     constructor(private _router: Router, private _dataService: DataService) { }
 
     ngOnInit(): void {
         this.data = this._dataService.getData();
+    }
+    updateScore() {
+        // funkcja do zapisu wyników
     }
 
     backIntro() {

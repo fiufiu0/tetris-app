@@ -1,8 +1,8 @@
 <div>
-    <div class="header">
+    <!-- <div class="header">
         <h2>Tetris App - Game Page</h2>
         <hr>
-    </div>
+    </div> -->
 
     <div class="inside" *ngIf="true">
         <div class="core">
@@ -25,6 +25,8 @@
         <div class="controller">
             <app-game-control [game]="game"></app-game-control>
         </div>
-
+        <div class="highscores">
+            <app-highscores></app-highscores>
+        </div>
     </div>
 </div>
