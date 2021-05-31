@@ -11,32 +11,23 @@ import { DataService } from '../data.service';
 export class IntroComponent implements OnInit {
   public name: string;
   public token: any;
+  public availableColors: any;
 
   constructor(private _router: Router, private _dataService: DataService) { }
   ngOnInit(): void {
   }
 
-  // startGame() {
-  //   this._dataService.checkToken(this.token).subscribe((data) => {
-  //     if (!data['success']) {
-  //       console.log("Wrong")
-  //     }
-  //     else {
-  //       this._dataService.setData({ name: this.name, token: this.token });
-  //       this._router.navigate(['/game']);
-  //     }
-  //   });
-  // }
-
   startGame() {
+    // const selectedColor = this.availableColors;
     this._dataService.checkToken(this.token).subscribe((data) => {
       let token: any = data;
       if (!token.success) {
         console.log("Wrong! Put token!")
       }
       else {
-        this._dataService.setData({ name: this.name, token: this.token });
-        this._router.navigate(['/game']);
+        this._dataService.setData({ name: this.name, token: this.token, color: this.availableColors });
+        this._dataService.selectedColor = this.availableColors;
+        this._router.navigate(['/game/' + this.availableColors]);
       }
     });
   }

@@ -6,13 +6,15 @@
 
     <div class="inside" *ngIf="true">
         <div class="core">
-            <tetris-core #game (lineCleared)="lineCleared()" (gameOver)="gameOver()">
+            <tetris-core #game class="{{_dataService.data.color==='highcontrast'? 'black-and-white': ''}}"
+                (lineCleared)="lineCleared()" (gameOver)="gameOver()">
             </tetris-core>
         </div>
 
         <div class="aboutplayer">
             <h4>Hello {{data?.name}} </h4>
             <p>Welcome to the game.</p>
+            <p>Selected color: {{data?.color}}</p>
         </div>
 
         <div class="scoretime">

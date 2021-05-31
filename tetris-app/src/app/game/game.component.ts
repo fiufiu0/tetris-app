@@ -30,6 +30,7 @@ export class GameComponent implements OnInit {
     ngOnInit(): void {
         this.data = this._dataService.getData();
     }
+
     updateScore() {
         // funkcja do zapisu wyników
     }

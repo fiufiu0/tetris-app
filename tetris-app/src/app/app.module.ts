@@ -33,6 +33,7 @@ import { SortScorePipe } from './game/sort-score.pipe';
     RouterModule.forRoot([
       { path: 'intro', component: IntroComponent },
       { path: 'game', component: GameComponent },
+      { path: 'game/:color', component: GameComponent },
       { path: '**', redirectTo: 'intro' }
     ])
   ],

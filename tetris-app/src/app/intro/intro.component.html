@@ -17,6 +17,15 @@
                 <input type="text" [(ngModel)]="token" name="token" />
             </div>
         </form>
+
+        <div class="color">
+            <label class="color">Select color</label>
+            <select class="color" [(ngModel)]="availableColors" name="availableColors">
+                <option value="normal">NORMAL</option>
+                <option value="highcontrast">HIGH CONTRAST</option>
+                <!-- <option *ngFor="let color of availableColors">{{color}}</option> -->
+            </select>
+        </div>
         <button (click)="startGame()">START GAME</button>
     </div>
 </div>

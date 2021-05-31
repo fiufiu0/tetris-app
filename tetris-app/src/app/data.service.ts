@@ -22,6 +22,7 @@ export class DataService {
   private data: any;
   private token: any;
   private url = `http://localhost:8080/scores`;
+  public selectedColor;
 
   constructor(private _http: HttpClient) { }
 
@@ -56,5 +57,9 @@ export class DataService {
 
   public getData(): any {
     return this.data;
+  }
+
+  public setColor(): any {
+
   }
 }
