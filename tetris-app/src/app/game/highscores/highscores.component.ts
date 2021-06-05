@@ -9,6 +9,7 @@ import { DataService } from 'src/app/data.service';
 export class HighscoresComponent implements OnInit {
   public playerName;
   public players;
+  public howSort: string = 'desc';
 
   constructor(private _dataService: DataService) {
     this.readScore();
@@ -16,12 +17,8 @@ export class HighscoresComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  ngOnChanges(): void {
-    // this.readScore();
-  }
 
   readScore() {
-    // this.playerName = this._dataService.getData().name;
     this._dataService.readScore().subscribe((result) => {
       this.players = result;
     });

@@ -59,7 +59,4 @@ export class DataService {
     return this.data;
   }
 
-  public setColor(): any {
-
-  }
 }
