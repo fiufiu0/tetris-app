@@ -5,27 +5,32 @@
     </div>
 
     <div class="form">
-        <!-- <app-intro-form></app-intro-form> -->
-        <form>
+        <form [formGroup]="formVerify" (submit)="startGame(formVerify)">
             <div class="name">
                 <label for="name">Player name:</label>
-                <input type="text" [(ngModel)]="name" name="name" />
+                <input formControlName="name" type="text" name="name" />
+                <p *ngIf="formVerify.controls.name.touched && !formVerify.controls.name.valid" style="color: #ff3333;">
+                    Name
+                    is required.
+                    Minimum 5 characters.</p>
             </div>
 
             <div class="token">
                 <label for="token">Player token:</label>
-                <input type="text" [(ngModel)]="token" name="token" />
+                <input formControlName="token" type="text" name="token" />
+                <p *ngIf="formVerify.controls.token.touched && !formVerify.controls.token.valid"
+                    style="color: #ff3333;">Token is required.
+                    Minimum 4 numbers.</p>
             </div>
+            <div class="color">
+                <label class="color">Select color: </label>
+                <select formControlName="color" class="color" name="availableColors">
+                    <option value="normal">NORMAL</option>
+                    <option value="highcontrast">HIGH CONTRAST</option>
+                </select>
+            </div>
+            <button [disabled]="!formVerify.valid">Start Game</button>
         </form>
 
-        <div class="color">
-            <label class="color">Select color</label>
-            <select class="color" [(ngModel)]="availableColors" name="availableColors">
-                <option value="normal">NORMAL</option>
-                <option value="highcontrast">HIGH CONTRAST</option>
-                <!-- <option *ngFor="let color of availableColors">{{color}}</option> -->
-            </select>
-        </div>
-        <button (click)="startGame()">START GAME</button>
     </div>
 </div>

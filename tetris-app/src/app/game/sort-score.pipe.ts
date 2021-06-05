@@ -1,6 +1,7 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { Player } from '../data.service';
 
+
 @Pipe({
   name: 'sortScore'
 })

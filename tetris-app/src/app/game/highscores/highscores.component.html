@@ -1,7 +1,7 @@
 <div class="ranking">
     <div class="sort-score">
         <b><label class="sort">Filter list </label></b>
-        <select class="sort" [(ngModel)]="howSort" [(ngModel)]="maxPlayers">
+        <select class="sort" [(ngModel)]="howSort">
             <option value="asc">Min score</option>
             <option value="desc">Max score</option>
         </select>
@@ -9,7 +9,7 @@
     <p><b>Player list</b></p>
     <div class="ranking-list">
 
-        <li *ngFor="let player of players | sortScore: 'score':howSort:maxPlayers">
+        <li *ngFor="let player of players | sortScore: 'score':howSort">
             <p>{{player.name}} | {{player.score}}</p>
         </li>
 
