@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, ViewChild, EventEmitter, HostListener } from '@angular/core';
 import { TetrisCoreComponent } from 'ngx-tetris';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { DataService } from '../data.service';
 
 @Component({
@@ -18,6 +18,9 @@ export class GameComponent implements OnInit {
     public data: any;
     timeId;
 
+    public color: string;
+    public css: string;
+
     @ViewChild('game') tetris: TetrisCoreComponent;
     @Output() exitGame = new EventEmitter();
     @Input() player = {
@@ -25,7 +28,15 @@ export class GameComponent implements OnInit {
         token: '',
     };
 
-    constructor(private _router: Router, private _dataService: DataService) { }
+    constructor(
+        private _router: Router,
+        private _dataService: DataService,
+        private _route: ActivatedRoute) {
+        this.color = this._route.snapshot.params.color;
+        if (this.color === 'highcontrast') {
+            this.css = 'black-and-white';
+        }
+    }
 
     ngOnInit(): void {
         this.data = this._dataService.getData();

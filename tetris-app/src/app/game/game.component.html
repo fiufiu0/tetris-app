@@ -6,8 +6,7 @@
 
     <div class="inside" *ngIf="true">
         <div class="core">
-            <tetris-core #game class="{{_dataService.data.color==='highcontrast'? 'black-and-white': ''}}"
-                (lineCleared)="lineCleared()" (gameOver)="gameOver()">
+            <tetris-core #game [class]="css" (lineCleared)="lineCleared()" (gameOver)="gameOver()">
             </tetris-core>
         </div>
 
